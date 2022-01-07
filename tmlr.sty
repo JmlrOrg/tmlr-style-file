@@ -11,8 +11,8 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{natbib}
 
-\usepackage{cmbright}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 
 % modification to natbib citations
 \setcitestyle{authoryear,round,citesep={;},aysep={,},yysep={;}}
@@ -100,7 +100,7 @@
 % Title (includes both anonimized and non-anonimized versions)
 \def\@maketitle{\vbox{\hsize\textwidth
 %\linewidth\hsize \vskip 0.1in \toptitlebar \centering
-{\LARGE\bf \@title\par}\vskip \aftertitskip
+{\LARGE\bf\sffamily \@title\par}\vskip \aftertitskip
 %\bottomtitlebar % \vskip 0.1in %  minus
 \if@accepted
     \lhead{Published in Transations on Machine Learning Research (\month/\year)}
@@ -112,25 +112,25 @@
 \fi
 \vskip 0.3in minus 0.1in}}
 
-\renewenvironment{abstract}{\vskip.075in\centerline{\large\bf
+\renewenvironment{abstract}{\vskip.075in\centerline{\large\bf\sffamily
 Abstract}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
 
 % sections with less space
 \def\section{\@startsection {section}{1}{\z@}{-2.0ex plus
     -0.5ex minus -.2ex}{1.5ex plus 0.3ex
-minus0.2ex}{\large\bf\raggedright}}
+minus0.2ex}{\large\bf\raggedright\sffamily}}
 
 \def\subsection{\@startsection{subsection}{2}{\z@}{-1.8ex plus
--0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bf\raggedright}}
+-0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bf\raggedright\sffamily}}
 \def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1.5ex
 plus      -0.5ex minus -.2ex}{0.5ex plus
-.2ex}{\normalsize\bf\raggedright}}
+.2ex}{\normalsize\bf\raggedright\sffamily}}
 \def\paragraph{\@startsection{paragraph}{4}{\z@}{1.5ex plus
 0.5ex minus .2ex}{-1em}{\normalsize\bf}}
 \def\subparagraph{\@startsection{subparagraph}{5}{\z@}{1.5ex plus
   0.5ex minus .2ex}{-1em}{\normalsize\bf}}
 \def\subsubsubsection{\vskip
-5pt{\noindent\normalsize\rm\raggedright}}
+5pt{\noindent\normalsize\rm\raggedright\sffamily}}
 
 
 % Footnotes
