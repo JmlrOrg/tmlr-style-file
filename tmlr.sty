@@ -29,6 +29,13 @@
 \DeclareOption{accepted}{%
     \@acceptedtrue
 }
+% declare preprint option, which creates a preprint version ready for
+% upload to, e.g., arXiv
+\newif\if@preprint\@preprintfalse
+\DeclareOption{preprint}{
+  \@preprinttrue
+  \@acceptedtrue
+}
 
 \DeclareOption*{\PackageWarning{tmlr}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
@@ -106,8 +113,13 @@
 {\LARGE\bf\sffamily \@title\par}\vskip \aftertitskip
 %\bottomtitlebar % \vskip 0.1in %  minus
 \if@accepted
-    \lhead{Published in Transations on Machine Learning Research (\month/\year)}
-    \@startauthor \@author \\ \\ {\bf Reviewed on OpenReview:} \openreview \@endauthor
+    \if@preprint
+        \lhead{}
+        \@startauthor \@author \@endauthor
+    \else
+        \lhead{Published in Transations on Machine Learning Research (\month/\year)}
+        \@startauthor \@author \\ \\ {\bf Reviewed on OpenReview:} \openreview \@endauthor
+    \fi
 \else
        \lhead{Under review as submission to TMLR}
    
