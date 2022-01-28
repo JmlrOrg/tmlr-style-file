@@ -29,6 +29,13 @@
 \DeclareOption{accepted}{%
     \@acceptedtrue
 }
+% declare preprint option, which creates a preprint version ready for
+% upload to, e.g., arXiv
+\newif\if@preprint\@preprintfalse
+\DeclareOption{preprint}{
+  \@preprinttrue
+  \@acceptedtrue
+}
 
 \DeclareOption*{\PackageWarning{tmlr}{Unknown ‘\CurrentOption’}}
 \ProcessOptions\relax
@@ -100,17 +107,29 @@
 \pagestyle{fancy}
 \fancyhead{}
 
-% Title (includes both anonimized and non-anonimized versions)
+\if@accepted
+    \if@preprint
+        \lhead{}
+    \else
+        \lhead{Published in Transactions on Machine Learning Research (\month/\year)}
+    \fi
+\else
+       \lhead{Under review as submission to TMLR}
+\fi
+
+% Title (includes both anonymized and non-anonymized versions)
 \def\@maketitle{\vbox{\hsize\textwidth
 %\linewidth\hsize \vskip 0.1in \toptitlebar \centering
 {\LARGE\bf\sffamily \@title\par}\vskip \aftertitskip
 %\bottomtitlebar % \vskip 0.1in %  minus
+\lhead{Under review as submission to TMLR}
 \if@accepted
-    \lhead{Published in Transations on Machine Learning Research (\month/\year)}
-    \@startauthor \@author \\ \\ {\bf Reviewed on OpenReview:} \openreview \@endauthor
+    \if@preprint
+        \@startauthor \@author \@endauthor
+    \else
+        \@startauthor \@author \\ \\ {\bf Reviewed on OpenReview:} \openreview \@endauthor
+    \fi
 \else
-       \lhead{Under review as submission to TMLR}
-   
     \@startauthor Anonymous authors\\Paper under double-blind review \@endauthor
 \fi
 \vskip 0.3in minus 0.1in}}

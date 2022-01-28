@@ -3,6 +3,8 @@
 \usepackage{tmlr}
 % If accepted, instead use the following line for the camera-ready submission:
 %\usepackage[accepted]{tmlr}
+% To de-anonymize and remove mentions to TMLR (for example for posting to preprint servers), instead use the following:
+%\usepackage[preprint]{tmlr}
 
 % Optional math commands from https://github.com/goodfeli/dlbook_notation.
 \input{math_commands.tex}
@@ -14,7 +16,7 @@
 \title{Formatting Instructions for TMLR \\Journal Submissions}
 
 % Authors must not appear in the submitted version. They should be hidden
-% as long as the \tmlrfinalcopy macro remains commented out below.
+% as long as the tmlr package is used without the [accepted] or [preprint] options.
 % Non-anonymous submissions will be rejected without review.
 
 \author{\name Kyunghyun Cho \email kyunghyun.cho@nyu.edu \\
@@ -61,7 +63,9 @@ package to adjust the format to the camera ready requirements, as follows:
 \end{center}
 You also need to specify the month and year
 by defining variables {\tt month} and {\tt year}, which respectively
-should be a 2-digit and 4-digit number.
+should be a 2-digit and 4-digit number. To de-anonymize and remove mentions
+to TMLR (for example for posting to preprint servers), use the preprint option,
+as in {\tt {\textbackslash}usepackage[preprint]\{tmlr\}}. 
 
 Please read carefully the instructions below, and follow them
 faithfully.
